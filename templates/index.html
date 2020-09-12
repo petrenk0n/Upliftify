@@ -11,14 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <img src="../static/color-typefacelogo-logo.svg" id="logo">
-        <!-- <button onclick="myFunction()">Toggle dark mode</button> -->
+    <div class="background-video">
+        <img src="../static/final-logo.svg" id="logo">
+        <video autoplay muted loop id="musicVid">
+          <source src="../static/cover-video.mp4" type="video/mp4">
+        </video>
     </div>
+
+    <div class="about-section">
+        <p id="description">Find music to elevate your mental state</p>
+    </div>
+    
     <!-- Main functionality will be in this div -->
     <div class="main">
         <script src="../static/webcam.js"></script>
-        <div id="my_camera" style="width:420px; height:340px;"></div>
+        <div id="my_camera" style="width:420px;height:340px; align-items: center;margin: auto;margin-bottom: 40px;"></div>
 	    <div id="my_result"></div>
 	    <script language="JavaScript">
 		    Webcam.attach('#my_camera');
@@ -38,14 +45,15 @@
 				});
 			});
 		}
-	</script>
-    <a href="javascript:void(take_snapshot())" class="button">Take Snapshot</a>
-    <br>
-    <div class="spacer"></div>
-    <a href="/identify" class="button">Find the playlist</a>
+    </script>
+    <div class="actions">
+        <a href="javascript:void(take_snapshot())" class="button">Take a picture</a>
+        <br>
+        <div class="spacer"></div>
+        <a href="/identify" class="button">Find the playlist</a>
     </div>
-    <div class="footer">
     </div>
+    <div id="footer"></div>
   <!-- <script src="js/scripts.js"></script> -->
   </script>
 </body>
