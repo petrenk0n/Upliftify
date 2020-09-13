@@ -63,6 +63,9 @@
         <div id="picture-taken">
           <p>Picture Taken! &#128077;</p>
         </div>
+        <div id="iden-done" style="display: none; padding: 30px; font-family: 'Kumbh Sans', sans-serif; font-size: 30px;">
+          <p>It looks like you might be feeling {{emotion}}</p>
+        </div>
     </div>
     <script>
       function myFunction() {
@@ -73,23 +76,26 @@
           x.style.display = "block";
         }
       }
+
+      function myFunction2() {
+        var x = document.getElementById("iden-done");
+        if (x.style.display === "none") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+      }
     </script>
     </div>
-    <div class="spotify-player-uplift">
-      <iframe src="https://open.spotify.com/playlist/0zEYcAeLKjGOcsAOgwUuj5?si=86mcdkdqQIi4uZbPJG5h5Q" width="100%" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-      <!-- https://open.spotify.com/playlist/1ZdgPeUoLUBnZtR8BNSeDg?si=R-mXrPuLTCis0N7RZpJF_A -->
-    </div>
-    <div class="spotify-player-chill" style="display: none;">
-      <iframe src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?si=b5GsMSgBR2q1dZF1Ej8-dQ" width="100%" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-      <!-- https://open.spotify.com/playlist/37i9dQZF1DX889U0CL85jj?si=qk15fCCuR_e1JO4QL0BHLA -->
-      <!-- https://open.spotify.com/playlist/37i9dQZF1DWWQRwui0ExPn?si=wh56-zGwQD6g14Qcr_Bv9As -->
-      <!-- https://open.spotify.com/playlist/37i9dQZF1DWYoYGBbGKurt?si=8S8SrSLHRBKUY0gUxFQoVg -->
-    </div>
-    <div class="spotify-player-joyful" style="display: none;">
-      <iframe src="https://open.spotify.com/playlist/37i9dQZF1DXdPec7aLTmlC?si=7-Q7uTriRw-k5f-UVZk2EA" width="100%" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-      <!-- https://open.spotify.com/playlist/37i9dQZF1DWSf2RDTDayIx?si=basj3SawTsGa4YEOJJOdDQ -->
-      <!-- https://open.spotify.com/playlist/37i9dQZF1DX84kJlLdo9vT?si=UBKf6QZOQP-Xq6ogDkwSZg -->
-      <!-- https://open.spotify.com/playlist/37i9dQZF1DWVlYsZJXqdym?si=8vjD67INSbGkAqbjKiU2HA -->
+    <div class="player">
+      {% if emotion == "joyful" %}
+        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWSf2RDTDayIx" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      {% elif emotion == "elevated" %}
+        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX889U0CL85jj" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      {% elif emotion == "down" %}
+        <iframe src="https://open.spotify.com/embed/playlist/0zEYcAeLKjGOcsAOgwUuj5" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      {% endif %}
+
     </div>
     <section class="wave">
       <img src="../static/logo.svg" class="footer-logo">

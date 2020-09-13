@@ -114,7 +114,14 @@ a {
     display: none;
 }
 
-.spotify-player {
+#iden-done {
+    padding: 30px;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 30px;
+    display: none;
+}
+
+.player {
     height: 700px;
 }
 
@@ -125,7 +132,7 @@ a {
 
 .wave {
     text-align: center;
-    height: 100px;
+    height: 105px;
     background-color: black;
 }
 

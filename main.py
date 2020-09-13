@@ -60,11 +60,11 @@ def identify():
         # Handle client's response
         # Neutral case
         if likelihood_name[face.anger_likelihood] == "VERY_UNLIKELY" and likelihood_name[face.joy_likelihood] == "VERY_UNLIKELY" and likelihood_name[face.surprise_likelihood] == "VERY_UNLIKELY":
-            search_term = "uplift"
+            search_term = "down"
             print(search_term)
         # Angry case
         elif likelihood_name[face.anger_likelihood] == "VERY_LIKELY" and likelihood_name[face.joy_likelihood] == "VERY_UNLIKELY" and likelihood_name[face.surprise_likelihood] == "VERY_UNLIKELY":
-            search_term = "chill"
+            search_term = "elevated"
             print(search_term)
         # Joy case
         elif likelihood_name[face.anger_likelihood] == "VERY_UNLIKELY" and likelihood_name[face.joy_likelihood] == "VERY_LIKELY" and likelihood_name[face.surprise_likelihood] == "VERY_UNLIKELY":
@@ -84,7 +84,7 @@ def identify():
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
 
-    return render_template('index.html', scroll="2", emotion=search_term)
+    return render_template('index.html', scroll="3", emotion=search_term)
 
 if __name__ == '__main__':
     app.run(port=8000)
