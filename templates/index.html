@@ -63,8 +63,17 @@
         <div id="picture-taken">
           <p>Picture Taken! &#128077;</p>
         </div>
-        <div id="iden-done" style="display: none; padding: 30px; font-family: 'Kumbh Sans', sans-serif; font-size: 30px;">
-          <p>It looks like you might be feeling {{emotion}}</p>
+        <div id="iden-done" style="padding: 30px; font-family: 'Kumbh Sans', sans-serif; font-size: 30px;">
+          {% if emotion == "joyful" %}
+            <p>It looks like you might be feeling {{emotion}}</p>
+            <p>Below is the playlist picked based on your mood</p>
+          {% elif emotion == "elevated" %}
+            <p>It looks like you might be feeling {{emotion}}</p>
+            <p>Below is the playlist picked based on your mood</p>
+          {% elif emotion == "down" %}
+            <p>It looks like you might be feeling {{emotion}}</p>
+            <p>Below is the playlist picked based on your mood</p>
+          {% endif %}
         </div>
     </div>
     <script>
