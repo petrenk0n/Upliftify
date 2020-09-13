@@ -58,8 +58,13 @@ a {
     100% {background-position: 100%}
 }
 
+.character {
+    height: 350px;
+    padding-top: 90px;
+    padding-bottom: 30px;
+}
+
 #description {
-    padding-top: 260px;
     color: white;
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 60px;
@@ -74,7 +79,7 @@ a {
     border-radius: 10px;
     padding: 20px;
     text-decoration: none;
-    background-image: linear-gradient(to right, #Ff97c1 , #Ffd217);
+    background-color:#Ff97c1;
     color: white;
     font-family: 'Kumbh Sans', sans-serif;
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
@@ -109,14 +114,21 @@ a {
     display: none;
 }
 
-.wave {
-    position: relative;
-    background: linear-gradient(to right, #Ff97c1 , #Ffd217);
-    height: 200px;
-    text-align: center;
-    line-height: 13em;
+.spotify-player {
+    height: 700px;
 }
 
 .footer-logo {
-    height: 50px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+.wave {
+    text-align: center;
+    height: 100px;
+    background-color: black;
+}
+
+iframe {
+    display: inline-block;
 }

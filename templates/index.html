@@ -10,7 +10,6 @@
   crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
 </head>
 <body>
     <div class="background-video">
@@ -21,7 +20,8 @@
     </div>
 
     <div class="about-section">
-        <p id="description">Find music to elevate your mental state</p>
+      <img src="../static/happy-character.svg" class="character">
+      <p id="description">Find music to elevate your mental state</p>
     </div>
     
     <!-- Main functionality will be in this div -->
@@ -38,22 +38,22 @@
 	    <div id="my_result" style="display: none;"></div>
 	    <script language="JavaScript">
 		    Webcam.attach('#my_camera');
-		function take_snapshot() {
-			Webcam.snap( function(data_uri) {
-				document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
-                // Sending the image to flask
-                $.ajax({
-					type: "GET",
-					data: "myimage=" + encodeURIComponent(data_uri),
-					url: "/upload",
-					contentType: false,
-					processData: false,
-					success: function (jsonresult) {
-              console.log("Success");
-					}
-				});
-			});
-		}
+		  function take_snapshot() {
+			  Webcam.snap( function(data_uri) {
+				  document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+                  // Sending the image to flask
+                  $.ajax({
+				  	type: "GET",
+				  	data: "myimage=" + encodeURIComponent(data_uri),
+				  	url: "/upload",
+				  	contentType: false,
+				  	processData: false,
+				  	success: function (jsonresult) {
+                console.log("Success");
+				  	}
+				  });
+			  });
+		  }
     </script>
     <div class="actions">
         <a href="javascript:void(take_snapshot(), myFunction())" class="btn">
@@ -75,11 +75,25 @@
       }
     </script>
     </div>
-    <div class="spotify-player"></div>
+    <div class="spotify-player-uplift">
+      <iframe src="https://open.spotify.com/playlist/0zEYcAeLKjGOcsAOgwUuj5?si=86mcdkdqQIi4uZbPJG5h5Q" width="100%" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <!-- https://open.spotify.com/playlist/1ZdgPeUoLUBnZtR8BNSeDg?si=R-mXrPuLTCis0N7RZpJF_A -->
+    </div>
+    <div class="spotify-player-chill" style="display: none;">
+      <iframe src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?si=b5GsMSgBR2q1dZF1Ej8-dQ" width="100%" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <!-- https://open.spotify.com/playlist/37i9dQZF1DX889U0CL85jj?si=qk15fCCuR_e1JO4QL0BHLA -->
+      <!-- https://open.spotify.com/playlist/37i9dQZF1DWWQRwui0ExPn?si=wh56-zGwQD6g14Qcr_Bv9As -->
+      <!-- https://open.spotify.com/playlist/37i9dQZF1DWYoYGBbGKurt?si=8S8SrSLHRBKUY0gUxFQoVg -->
+    </div>
+    <div class="spotify-player-joyful" style="display: none;">
+      <iframe src="https://open.spotify.com/playlist/37i9dQZF1DXdPec7aLTmlC?si=7-Q7uTriRw-k5f-UVZk2EA" width="100%" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <!-- https://open.spotify.com/playlist/37i9dQZF1DWSf2RDTDayIx?si=basj3SawTsGa4YEOJJOdDQ -->
+      <!-- https://open.spotify.com/playlist/37i9dQZF1DX84kJlLdo9vT?si=UBKf6QZOQP-Xq6ogDkwSZg -->
+      <!-- https://open.spotify.com/playlist/37i9dQZF1DWVlYsZJXqdym?si=8vjD67INSbGkAqbjKiU2HA -->
+    </div>
     <section class="wave">
       <img src="../static/logo.svg" class="footer-logo">
     </section>
-  <!-- <script src="js/scripts.js"></script> -->
   </script>
 </body>
 </html>

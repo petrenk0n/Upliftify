@@ -84,7 +84,7 @@ def identify():
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
 
-    return render_template('index.html', scroll="2")
+    return render_template('index.html', scroll="2", emotion=search_term)
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=8000)
