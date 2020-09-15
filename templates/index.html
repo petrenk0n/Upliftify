@@ -26,35 +26,8 @@
     
     <!-- Main functionality will be in this div -->
     <div class="main" id="2">
-      {% if scroll %}
-      <script>
-      document.getElementById('{{ scroll }}').scrollIntoView();
-      // or
-      document.location.hash = '#' + '{{ scroll }}';
-      </script>
-      {% endif %}
-        <script src="../static/webcam.js"></script>
-        <div id="my_camera" style="width:800px;height:700px; align-items: center;margin: auto;margin-bottom: 40px;"></div>
+      <div id="my_camera" style="width:800px;height:700px; align-items: center;margin: auto;margin-bottom: 40px;"></div>
 	    <div id="my_result" style="display: none;"></div>
-	    <script language="JavaScript">
-		    Webcam.attach('#my_camera');
-		  function take_snapshot() {
-			  Webcam.snap( function(data_uri) {
-				  document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
-                  // Sending the image to flask
-                  $.ajax({
-				  	type: "GET",
-				  	data: "myimage=" + encodeURIComponent(data_uri),
-				  	url: "/upload",
-				  	contentType: false,
-				  	processData: false,
-				  	success: function (jsonresult) {
-                console.log("Success");
-				  	}
-				  });
-			  });
-		  }
-    </script>
     <div class="actions">
         <a href="javascript:void(take_snapshot(), myFunction())" class="btn">
         <div class="button">Take a picture</div></a>
@@ -64,6 +37,7 @@
           <p>Picture Taken! &#128077;</p>
         </div>
         <div id="iden-done" style="padding: 30px; font-family: 'Kumbh Sans', sans-serif; font-size: 30px;">
+          <!-- Display recognized emotion -->
           {% if emotion == "joyful" %}
             <p>It looks like you might be feeling {{emotion}}</p>
             <p>Below is the playlist picked based on your mood</p>
@@ -76,27 +50,9 @@
           {% endif %}
         </div>
     </div>
-    <script>
-      function myFunction() {
-        var x = document.getElementById("picture-taken");
-        if (x.style.display === "none") {
-          x.style.display = "none";
-        } else {
-          x.style.display = "block";
-        }
-      }
-
-      function myFunction2() {
-        var x = document.getElementById("iden-done");
-        if (x.style.display === "none") {
-          x.style.display = "none";
-        } else {
-          x.style.display = "block";
-        }
-      }
-    </script>
     </div>
     <div class="player">
+      <!-- Show the Spotify embed depending on the recognized emotion -->
       {% if emotion == "joyful" %}
         <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWSf2RDTDayIx" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       {% elif emotion == "elevated" %}
@@ -104,11 +60,11 @@
       {% elif emotion == "down" %}
         <iframe src="https://open.spotify.com/embed/playlist/0zEYcAeLKjGOcsAOgwUuj5" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       {% endif %}
-
     </div>
     <section class="wave">
       <img src="../static/logo.svg" class="footer-logo">
     </section>
   </script>
+  <script src="../static/script.js"></script>
 </body>
 </html>
