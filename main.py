@@ -29,9 +29,11 @@ def main():
 # Uploading image from webcam
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
+    # Decode base64 webcam image
     myfile = request.args.get('myimage').split(',')
     imgdata = base64.b64decode(myfile[1])
     image_name = "photo.jpeg"
+    # Save the image as photo.jpeg locally
     with open(os.path.join(cwd, image_name), "wb") as f:
         f.write(imgdata)
     return render_template('index.html')
@@ -71,8 +73,6 @@ def identify():
             search_term = "joyful"
             print(search_term)
 
-        # Spotify api integration
-
         vertices = (['({},{})'.format(vertex.x, vertex.y)
                     for vertex in face.bounding_poly.vertices])
 
@@ -84,7 +84,7 @@ def identify():
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
 
-    return render_template('index.html', scroll="3", emotion=search_term)
+    return render_template('index.html', scroll="2", emotion=search_term)
 
 if __name__ == '__main__':
     app.run(port=8000)
