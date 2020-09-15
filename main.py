@@ -63,11 +63,11 @@ def identify():
             search_term = "down"
             print(search_term)
         # Angry case
-        elif likelihood_name[face.anger_likelihood] == "VERY_LIKELY" and likelihood_name[face.joy_likelihood] == "VERY_UNLIKELY" and likelihood_name[face.surprise_likelihood] == "VERY_UNLIKELY":
+        elif likelihood_name[face.anger_likelihood] == "VERY_LIKELY" or likelihood_name[face.anger_likelihood] == "LIKELY" or likelihood_name[face.anger_likelihood] == "POSSIBLE" or likelihood_name[face.anger_likelihood] == "UNLIKELY" and likelihood_name[face.joy_likelihood] == "VERY_UNLIKELY" and likelihood_name[face.surprise_likelihood] == "VERY_UNLIKELY":
             search_term = "elevated"
             print(search_term)
         # Joy case
-        elif likelihood_name[face.anger_likelihood] == "VERY_UNLIKELY" and likelihood_name[face.joy_likelihood] == "VERY_LIKELY" and likelihood_name[face.surprise_likelihood] == "VERY_UNLIKELY":
+        elif likelihood_name[face.anger_likelihood] == "VERY_UNLIKELY" and likelihood_name[face.joy_likelihood] == "VERY_LIKELY" or likelihood_name[face.joy_likelihood] == "LIKELY" or likelihood_name[face.joy_likelihood] == "POSSIBLE" and likelihood_name[face.surprise_likelihood] == "VERY_UNLIKELY":
             search_term = "joyful"
             print(search_term)
 
