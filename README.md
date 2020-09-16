@@ -12,13 +12,13 @@ Upliftify lets users find Spotify playlists based on their mental state
 2. Download webcam.js and store inside static directory
 3. Obtain json for Google Cloud Vision API
 
-- Install the requirements
+4. Install the requirements
     ```bash
     pip3 install -r requirements.txt
     ```
 
-- Start the flask server
+5. Start the flask server
     ```bash
     python3 main.py
     ```
-- Go to `http://localhost:8000`
+Go to `http://localhost:8000`
